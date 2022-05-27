@@ -14,6 +14,10 @@
 
 		<div class="view">
 			<Nuxt />
+
+			<AlertPopup close-text="Ok">
+				The website is still under construction. Maybe come back later!
+			</AlertPopup>
 		</div>
 	</div>
 </template>

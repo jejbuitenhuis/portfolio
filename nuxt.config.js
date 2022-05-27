@@ -34,9 +34,11 @@ export default {
 	fontawesome: {
 		component: "fa",
 		suffix: true,
+		addCss: true,
 		icons: {
 			solid: [
 				"faEnvelope",
+				"faTriangleExclamation",
 			],
 			brands: [
 				"faGithub",

@@ -2,7 +2,7 @@
 	<button
 		v-if="type === 'function'"
 		class="ActionButton"
-		:class="{ outline }"
+		:class="{ outline, small }"
 		@click="action"
 	>
 		<slot />
@@ -11,7 +11,7 @@
 	<a
 		v-else-if="type === 'external-link'"
 		class="ActionButton"
-		:class="{ outline }"
+		:class="{ outline, small }"
 		:href="action"
 	>
 		<slot />
@@ -20,7 +20,7 @@
 	<NuxtLink
 		v-else
 		class="ActionButton"
-		:class="{ outline }"
+		:class="{ outline, small }"
 		:to="action"
 	>
 		<slot />
@@ -44,6 +44,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		small: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	computed: {
 		type() {
@@ -64,9 +68,8 @@ export default {
 .ActionButton {
 	box-sizing: border-box;
 	display: inline-block;
-	min-width: 12em;
 	margin: 0;
-	padding: .5em 1em;
+	padding: .25em 1em;
 	background-color: map-get($colors, "blue");
 	color: map-get($colors, "background");
 	border: .1em solid map-get($colors, "blue");
@@ -77,6 +80,11 @@ export default {
 	font-family: inherit;
 	font-size: inherit;
 	cursor: pointer;
+
+	&:not(.small) {
+		min-width: 12em;
+		padding: .5em 1em;
+	}
 
 	&.outline {
 		background-color: transparent;
