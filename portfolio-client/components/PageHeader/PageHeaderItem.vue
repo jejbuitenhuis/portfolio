@@ -1,9 +1,19 @@
 <template>
-	<div class="PageHeaderItem">
-		<NuxtLink :to="to" class="link">
-			<slot />
-		</NuxtLink>
-	</div>
+	<a
+		v-if="isExternal"
+		:href="to"
+		class="PageHeaderItem"
+	>
+		<slot />
+	</a>
+
+	<NuxtLink
+		v-else
+		:to="to"
+		class="PageHeaderItem"
+	>
+		<slot />
+	</NuxtLink>
 </template>
 
 <script>
@@ -16,6 +26,11 @@ export default {
 			validator: t => t.length > 0,
 		}
 	},
+	computed: {
+		isExternal() {
+			return this.to.startsWith("http");
+		},
+	},
 };
 </script>
 
@@ -25,16 +40,19 @@ export default {
 $font-size-multiplier: 2;
 
 .PageHeaderItem {
-	.link {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: math.div($header-width, $font-size-multiplier);
-		height: math.div($header-width, $font-size-multiplier);
-		color: inherit;
-		text-decoration: none;
-		font-family: "Bungee", cursive;
-		font-size: 1em * $font-size-multiplier;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: math.div($header-width, $font-size-multiplier);
+	height: math.div($header-width, $font-size-multiplier);
+	color: map-get($colors, "foreground");
+	text-decoration: none;
+	font-family: "Bungee", cursive;
+	font-size: 1em * $font-size-multiplier;
+	transition: color .3s ease;
+
+	&:hover {
+		color: map-get($colors, "blue");
 	}
 }
 </style>

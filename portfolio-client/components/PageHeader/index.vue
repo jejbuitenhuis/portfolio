@@ -11,14 +11,14 @@
 		</div>
 
 		<div class="bottom">
-			<PageHeaderItem to="/">
-				C
+			<PageHeaderItem to="https://github.com/jejbuitenhuis/">
+				<fa-icon :icon="[ 'fab', 'github' ]" class="icon" />
+			</PageHeaderItem>
+			<PageHeaderItem to="https://nl.linkedin.com/in/joram-buitenhuis-43169b1b6/">
+				<fa-icon :icon="[ 'fab', 'linkedin' ]" class="icon" />
 			</PageHeaderItem>
 			<PageHeaderItem to="/">
-				C
-			</PageHeaderItem>
-			<PageHeaderItem to="/">
-				C
+				<fa-icon :icon="[ 'fas', 'envelope' ]" class="icon" />
 			</PageHeaderItem>
 		</div>
 	</header>
@@ -42,6 +42,10 @@ export default {
 	height: 100vh;
 	background-color: map-get($colors, "grey");
 	z-index: 100;
+
+	.icon {
+		font-size: .8em;
+	}
 
 	.home {
 		color: map-get($colors, "blue");
