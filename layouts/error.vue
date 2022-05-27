@@ -1,11 +1,11 @@
 <template>
 	<div id="Error">
-		<h1 class="title">
-			{{ error.statusCode }}
+		<h1 v-if="code" class="title">
+			{{ code }}
 		</h1>
 
 		<p class="message">
-			{{ error.message || "I don't know what happened but it didn't work" }}
+			{{ message }}
 		</p>
 
 		<NuxtLink class="back" to="/">
@@ -21,6 +21,15 @@ export default {
 		error: {
 			type: Object,
 			required: true,
+		},
+	},
+	computed: {
+		code() {
+			return this.error?.statusCode;
+		},
+
+		message() {
+			return this.error?.message || "I don't know what happened but it didn't work";
 		},
 	},
 };
