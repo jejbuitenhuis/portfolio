@@ -22,6 +22,7 @@ module.exports = {
 		quotes: [ "error", "double", { allowTemplateLiterals: true }],
 		semi: [ "error", "always" ],
 		"comma-dangle": [ "error", "only-multiline" ],
+		curly: [ "error", "multi", "consistent" ],
 		"array-bracket-spacing": [ "error", "always", {
 			singleValue: false,
 			objectsInArrays: false,
