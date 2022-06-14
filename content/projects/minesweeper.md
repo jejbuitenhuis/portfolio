@@ -5,7 +5,6 @@
 	"image": "minesweeper.png",
 	"links": {
 		"github": "https://github.com/jejbuitenhuis/minesweeper/",
-		"external": "https://jejb.dev/projects/minesweeper/"
 	},
 	"languages": [
 		"c++"
