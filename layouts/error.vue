@@ -8,9 +8,9 @@
 			{{ message }}
 		</p>
 
-		<NuxtLink class="back" to="/">
-			Go to the home page
-		</NuxtLink>
+		<p class="back" role="link" @click="back()">
+			Go back to where you came from
+		</p>
 	</div>
 </template>
 
@@ -30,6 +30,11 @@ export default {
 
 		message() {
 			return this.error?.message || "I don't know what happened but it didn't work";
+		},
+	},
+	methods: {
+		back() {
+			this.$router.back();
 		},
 	},
 };
@@ -53,6 +58,8 @@ export default {
 
 	.back {
 		color: map-get($colors, "blue");
+		text-decoration: underline;
+		cursor: pointer;
 	}
 }
 </style>
