@@ -1,7 +1,7 @@
 <template>
 	<div id="App">
 		<PageHeader>
-			<PageHeaderScroller to="skills">
+			<!--<PageHeaderScroller to="skills">
 				Skills
 			</PageHeaderScroller>
 			<PageHeaderScroller to="experience">
@@ -9,7 +9,7 @@
 			</PageHeaderScroller>
 			<PageHeaderScroller to="projects">
 				Projects
-			</PageHeaderScroller>
+			</PageHeaderScroller>-->
 		</PageHeader>
 
 		<div class="view">
