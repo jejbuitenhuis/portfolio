@@ -20,12 +20,36 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="projects">
+			<SectionTitle>Projects</SectionTitle>
+
+			<ProjectList :projects="projects" />
+		</div>
 	</div>
 </template>
 
 <script>
 export default {
 	name: "HomePage",
+	async asyncData({ $content }) {
+		const projects = await $content("projects")
+			.fetch();
+
+		projects.sort((a, b) => {
+			const titleA = a.title.toLowerCase();
+			const titleB = b.title.toLowerCase();
+
+			if (titleA < titleB) return -1;
+			if (titleA > titleB) return 1;
+
+			return 0;
+		});
+
+		return {
+			projects,
+		};
+	},
 	methods: {
 		scrollToSkills() {
 			console.log("Scroll to skills!");

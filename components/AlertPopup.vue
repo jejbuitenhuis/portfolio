@@ -50,6 +50,7 @@ export default {
 	border-radius: .3em;
 	transform: translateX(-50%);
 	transition: bottom 4s ease-out;
+	z-index: 100;
 
 	&.closed {
 		bottom: -100%;

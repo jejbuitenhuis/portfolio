@@ -39,6 +39,7 @@ export default {
 			solid: [
 				"faEnvelope",
 				"faTriangleExclamation",
+				"faExternalLinkAlt",
 			],
 			brands: [
 				"faGithub",
@@ -59,11 +60,12 @@ export default {
 		// https://go.nuxtjs.dev/eslint
 		"@nuxtjs/eslint-module",
 		"@nuxtjs/style-resources",
-		"@nuxtjs/fontawesome",
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
 	modules: [
+		"@nuxtjs/fontawesome",
+		"@nuxt/content",
 	],
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build

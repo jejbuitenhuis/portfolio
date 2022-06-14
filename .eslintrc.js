@@ -16,6 +16,7 @@ module.exports = {
 	],
 	// add your custom rules here
 	rules: {
+		"arrow-parens": [ "error", "as-needed" ],
 		"no-tabs": [ "error", { allowIndentationTabs: true }],
 		indent: [ "error", "tab" ],
 		"vue/html-indent": [ "error", "tab" ],
