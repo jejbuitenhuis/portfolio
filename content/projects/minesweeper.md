@@ -7,7 +7,7 @@
 		"github": "https://github.com/jejbuitenhuis/minesweeper/",
 	},
 	"languages": [
-		"c++"
+		"C++"
 	]
 }
 ---
