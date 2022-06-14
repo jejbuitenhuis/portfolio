@@ -103,9 +103,9 @@ export default {
 		}
 
 		.LazyImage {
-			grid-area: image;
 			max-width: 100%;
 			max-height: 100%;
+			color: map-get($colors, "foreground");
 		}
 
 		div.content {
