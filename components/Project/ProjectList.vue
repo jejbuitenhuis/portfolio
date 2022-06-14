@@ -27,7 +27,7 @@
 						:href="link"
 						target="_blank"
 					>
-						<fa-icon :icon="getIcon(type)" />
+						<fa-icon class="icon" :icon="getIcon(type)" />
 					</a>
 				</div>
 
@@ -161,6 +161,10 @@ export default {
 
 					&:hover {
 						color: map-get($colors, "blue");
+					}
+
+					.icon {
+						height: 1em; // fix for fontawesome icons not being the correct size when build
 					}
 				}
 			}
