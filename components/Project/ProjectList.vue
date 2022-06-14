@@ -88,6 +88,7 @@ export default {
 		position: relative;
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 4em;
 		background-color: map-get($colors, "grey");
 		border-radius: 5px;
 		box-shadow: 0 0 0 0 #000000;

@@ -53,6 +53,10 @@ export default {
 	text-decoration: none;
 	transition: border-color .3s ease;
 
+	&:not(:first-of-type) {
+		margin-left: .5em;
+	}
+
 	&:hover,
 	&.dark:hover {
 		border-color: map-get($colors, "blue");
