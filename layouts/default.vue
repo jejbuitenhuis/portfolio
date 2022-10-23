@@ -53,6 +53,7 @@ body {
 		@include media(tablet, desktop) {
 			width: calc(100% - $header-width);
 			margin-left: $header-width;
+			margin-bottom: 4rem;
 			padding: 0 4rem;
 		}
 	}
