@@ -34,6 +34,7 @@ export default {
 		scss: [
 			"./assets/scss/**/*.scss",
 		],
+		hoistUseStatements: true,
 	},
 
 	fontawesome: {
