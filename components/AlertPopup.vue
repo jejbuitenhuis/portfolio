@@ -1,14 +1,16 @@
 <template>
 	<div class="AlertPopup" :class="{ closed }">
-		<fa-icon class="icon" :icon="[ 'fas', 'triangle-exclamation' ]" />
+		<div class="container">
+			<fa-icon class="icon" :icon="[ 'fas', 'triangle-exclamation' ]" />
 
-		<div class="content">
-			<slot />
+			<div class="content">
+				<slot />
+			</div>
+
+			<ActionButton small :action="close" title="Close popup">
+				{{ closeText }}
+			</ActionButton>
 		</div>
-
-		<ActionButton small :action="close" title="Close popup">
-			{{ closeText }}
-		</ActionButton>
 	</div>
 </template>
 
@@ -36,30 +38,80 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/mixins.scss";
+
+$padding: 1em;
+
 .AlertPopup {
+	box-sizing: border-box;
 	position: fixed;
-	bottom: 1em;
-	left: 50%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 1em;
-	max-width: 50vw;
-	padding: 1em;
-	background-color: map-get($colors, "grey");
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba( map-get($colors, "background"), 0.85 );
 	border-radius: .3em;
-	transform: translateX(-50%);
-	transition: bottom 4s ease-out;
+	text-align: center;
+	transition:
+		top .75s ease-out,
+		bottom 4s ease-out,
+		background-color .5s ease-out;
 	z-index: 100;
 
-	&.closed {
-		bottom: -100%;
+	@include media(phone) {
+		display: flex;
+		align-items: center;
 	}
 
-	.icon {
-		height: 1em; // fix for fontawesome icons not being the correct size when build
-		color: map-get($colors, "red");
-		font-size: 1.25em;
+	@include media(tablet, desktop) {
+		top: unset;
+		bottom: $padding;
+		left: 50%;
+		width: unset;
+		height: unset;
+		max-width: 50vw;
+		transform: translateX(-50%);
+	}
+
+	&.closed {
+		top: 100%;
+		background-color: transparent;
+
+		@include media(tablet, desktop) {
+			bottom: -100%;
+		}
+	}
+
+	div.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1em;
+		width: 100%;
+		padding: $padding;
+		background-color: map-get($colors, "grey");
+		border-radius: .3em;
+
+		@include media(tablet, desktop) {
+			flex-direction: row;
+			width: unset;
+		}
+
+		@include media(phone) {
+			div.content {
+				margin: 1em 0;
+			}
+		}
+
+		.icon {
+			height: 1em; // fix for fontawesome icons not being the correct size when build
+			color: map-get($colors, "red");
+			font-size: 2.5em;
+
+			@include media(tablet, desktop) {
+				font-size: 1.25em;
+			}
+		}
 	}
 }
 </style>

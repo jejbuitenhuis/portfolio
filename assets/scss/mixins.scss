@@ -1,0 +1,54 @@
+$media_sizes: (
+	phone: 0px,
+	tablet: 680px,
+	desktop: 1200px,
+);
+
+// from: https://teamtreehouse.com/community/is-there-a-way-to-get-the-next-item-in-a-map-by-using-the-name-of-the-item-before-it
+@function nextKey($current-value, $mapped-list:$media_sizes) {
+	// get current key from list
+	$the-list: map-keys($mapped-list);
+
+	//find index of current value and add 1
+	$the-index: ( index( $the-list, $current-value) ) + 1;
+
+	// get value from list with new index
+	$new-value : nth($the-list, $the-index);
+
+	@return $new-value;
+
+}
+
+@mixin media($breakpoints...) {
+	// return all keys from a map as a list
+	$mapped__keys : map-keys($media_sizes);
+
+	@each $breakpoint in $breakpoints {
+		// get index of the current name passed
+		$index : index($mapped__keys, $breakpoint);
+	
+		@if $index {
+			// if there is another key above the selected key, run this
+			@if $index < length($media_sizes) {
+				@media screen and ( min-width : map-get($media_sizes, $breakpoint) ) and ( max-width: map-get( $media_sizes, nextKey($breakpoint) ) - 1 ) {
+					body {
+						height: $index;
+					}
+					@content;
+				}
+			}
+			// if key is the largest value, run this
+			@else if $index == length($media_sizes) {
+				@media screen and (min-width : map-get($media_sizes, $breakpoint) ) {
+					body {
+						width: $index;
+					}
+					@content;
+				}
+			}
+		}
+		@else {
+			@error "Sorry but #{$breakpoint} is not a breakpoint in your setup";
+		}
+	}
+}
