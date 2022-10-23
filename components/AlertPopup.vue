@@ -86,6 +86,7 @@ $padding: 1em;
 		align-items: center;
 		gap: 1em;
 		width: 100%;
+		margin: 1em 2em;
 		padding: $padding;
 		background-color: map-get($colors, "grey");
 		border-radius: .3em;
@@ -93,6 +94,7 @@ $padding: 1em;
 		@include media(tablet, desktop) {
 			flex-direction: row;
 			width: unset;
+			margin: unset;
 		}
 
 		@include media(phone) {
