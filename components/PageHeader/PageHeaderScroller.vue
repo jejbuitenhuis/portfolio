@@ -81,8 +81,10 @@ export default {
 		}
 	}
 
-	&:hover div.tooltip:not(:hover) {
-		opacity: 1;
+	@include media(desktop) {
+		&:hover div.tooltip:not(:hover) {
+			opacity: 1;
+		}
 	}
 }
 </style>

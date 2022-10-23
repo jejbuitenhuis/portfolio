@@ -60,39 +60,62 @@ export default {
 
 <style lang="scss">
 #Home {
-	div.landing {
+	div.landing { // {{{
 		display: grid;
-		grid-template-columns: 50% 50%;
 		align-items: center;
 		min-height: 100vh;
+
+		@include media(tablet, desktop) {
+			grid-template-columns: 50% 50%;
+		}
 
 		p {
 			margin: 0;
 		}
 
-		div.welcome,
-		div.introduction {
-			padding: 4rem;
-		}
-
 		div.welcome {
-			font-size: 3.5em;
-			text-align: left;
+			font-size: 2.5em;
+
+			@include media(tablet, desktop) {
+				padding-right: 4rem;
+				font-size: 3.5em;
+				text-align: left;
+			}
 		}
 
 		div.introduction {
-			font-size: 1.75em;
-			text-align: right;
+			font-size: 1.25em;
+
+			@include media(tablet, desktop) {
+				padding-left: 4rem;
+				font-size: 1.75em;
+				text-align: right;
+			}
 
 			div.buttons {
+				display: flex;
+				flex-direction: column;
 				margin-top: 2em;
 				font-size: .75em;
 
 				>:not(:first-child) {
-					margin-left: 2em;
+					margin-top: 1.5em;
+				}
+
+				@include media(tablet, desktop) {
+					flex-direction: row;
+
+					>:first-child {
+						margin-left: auto;
+					}
+
+					>:not(:first-child) {
+						margin-top: 0;
+						margin-left: 2em;
+					}
 				}
 			}
 		}
-	}
+	} // }}}
 }
 </style>

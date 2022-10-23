@@ -13,9 +13,13 @@ export default {
 <style lang="scss" scoped>
 .SectionTitle {
 	position: relative;
-	padding: 0 2em;
+	padding: 0 .5em;
 	font-family: "Bungee", cursive;
 	font-size: 2.5em;
+
+	@include media(tablet, desktop) {
+		padding: 0 2em;
+	}
 
 	&::before {
 		content: "§";
@@ -33,6 +37,10 @@ export default {
 		background-color: map-get($colors, "blue");
 		border-radius: 100px;
 		transform: translateY(-50%);
+
+		@include media(phone) {
+			display: none;
+		}
 	}
 }
 </style>

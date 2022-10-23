@@ -47,8 +47,14 @@ body {
 
 #App {
 	div.view {
-		margin-left: $header-width;
-		width: calc(100vw - $header-width);
+		box-sizing: border-box;
+		padding: 0 2rem;
+
+		@include media(tablet, desktop) {
+			width: calc(100% - $header-width);
+			margin-left: $header-width;
+			padding: 0 4rem;
+		}
 	}
 }
 </style>

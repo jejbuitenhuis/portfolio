@@ -57,9 +57,11 @@ export default {
 		margin-left: .5em;
 	}
 
-	&:hover,
-	&.dark:hover {
-		border-color: map-get($colors, "blue");
+	@include media(desktop) {
+		&:hover,
+		&.dark:hover {
+			border-color: map-get($colors, "blue");
+		}
 	}
 
 	&.dark {

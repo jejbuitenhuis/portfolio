@@ -38,8 +38,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/mixins.scss";
-
 $padding: 1em;
 
 .AlertPopup {

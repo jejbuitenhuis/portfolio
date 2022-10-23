@@ -80,9 +80,16 @@ export default {
 
 <style lang="scss" scoped>
 .ProjectList {
-	column-count: 3;
+	column-count: 1;
 	column-gap: 4em;
-	padding: 4em;
+
+	@include media(tablet) {
+		column-count: 2;
+	}
+
+	@include media(desktop) {
+		column-count: 3;
+	}
 
 	div.project {
 		position: relative;
@@ -98,9 +105,11 @@ export default {
 			box-shadow .3s ease,
 			transform .3s ease;
 
-		&:hover {
-			box-shadow: 0 10px 30px -15px #000000;
-			transform: translateY(-.5em);
+		@include media(desktop) {
+			&:hover {
+				box-shadow: 0 10px 30px -15px #000000;
+				transform: translateY(-.5em);
+			}
 		}
 
 		.LazyImage {
@@ -159,8 +168,10 @@ export default {
 					text-decoration: none;
 					transition: color .3s ease;
 
-					&:hover {
-						color: map-get($colors, "blue");
+					@include media(desktop) {
+						&:hover {
+							color: map-get($colors, "blue");
+						}
 					}
 
 					.icon {
