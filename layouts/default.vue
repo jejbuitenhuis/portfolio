@@ -16,7 +16,7 @@
 			<Nuxt />
 
 			<AlertPopup close-text="Ok">
-				The website is still under construction. Maybe come back later!
+				The website is still under construction. Expect to see things that don't work well!
 			</AlertPopup>
 		</div>
 	</div>
