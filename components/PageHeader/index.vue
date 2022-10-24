@@ -44,7 +44,7 @@ export default {
 	z-index: 100;
 
 	@include media(phone) {
-		box-shadow: 1px 3px 5px 0px rgba(13,13,13,0.75);
+		box-shadow: 1px 3px 5px 0px rgba(13, 13, 13, 0.75);
 	}
 
 	@include media(tablet, desktop) {

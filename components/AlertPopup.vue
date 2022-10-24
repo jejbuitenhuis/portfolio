@@ -90,6 +90,7 @@ $padding: 1em;
 		padding: $padding;
 		background-color: map-get($colors, "grey");
 		border-radius: .3em;
+		box-shadow: 1px 3px 5px 0px rgba(13, 13, 13, 0.75);
 
 		@include media(tablet, desktop) {
 			flex-direction: row;
