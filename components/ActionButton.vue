@@ -6,6 +6,10 @@
 		@click="action"
 	>
 		<slot />
+
+		<div class="icon">
+			<fa-icon :icon="[ 'fas', 'angle-right' ]" />
+		</div>
 	</button>
 
 	<a
@@ -15,6 +19,10 @@
 		:href="action"
 	>
 		<slot />
+
+		<div class="icon">
+			<fa-icon :icon="[ 'fas', 'angle-right' ]" />
+		</div>
 	</a>
 
 	<NuxtLink
@@ -24,6 +32,10 @@
 		:to="action"
 	>
 		<slot />
+
+		<div class="icon">
+			<fa-icon :icon="[ 'fas', 'angle-right' ]" />
+		</div>
 	</NuxtLink>
 </template>
 
@@ -65,9 +77,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$arrow-show-size: 20%;
+
 .ActionButton {
 	box-sizing: border-box;
-	display: inline-block;
+	position: relative;
+	display: grid;
+	grid-template-columns: 100% 0;
 	margin: 0;
 	padding: .25em 1em;
 	background-color: map-get($colors, "blue");
@@ -79,7 +95,10 @@ export default {
 	text-decoration: none;
 	font-family: inherit;
 	font-size: inherit;
+	overflow: hidden;
 	cursor: pointer;
+	transition: grid-template-columns .3s ease;
+	z-index: 0;
 
 	&:not(.small) {
 		min-width: 12em;
@@ -89,6 +108,57 @@ export default {
 	&.outline {
 		background-color: transparent;
 		color: map-get($colors, "foreground");
+	}
+
+	div.icon {
+		display: none;
+	}
+
+	@include media(desktop) {
+		&:not(.outline):not(.small) {
+			div.icon {
+				position: absolute;
+				top: 0;
+				right: -$arrow-show-size;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: $arrow-show-size;
+				height: 100%;
+				color: currentColor;
+				font-size: 1.25em;
+				transition: right .3s ease;
+			}
+
+			&:hover {
+				grid-template-columns: #{100% - $arrow-show-size} $arrow-show-size;
+
+				div.icon {
+					right: 0;
+				}
+			}
+		}
+
+		&.outline {
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: unset;
+				right: 0;
+				width: 0;
+				height: 100%;
+				background-color: map-get($colors, "blue");
+				transition: width .3s ease;
+				z-index: -1;
+			}
+
+			&:hover::before {
+				left: 0;
+				right: unset;
+				width: 100%;
+			}
+		}
 	}
 }
 </style>

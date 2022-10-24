@@ -45,6 +45,7 @@ export default {
 				"faEnvelope",
 				"faTriangleExclamation",
 				"faExternalLinkAlt",
+				"faAngleRight",
 			],
 			brands: [
 				"faGithub",
