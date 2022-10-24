@@ -112,6 +112,10 @@ $arrow-show-size: 20%;
 
 	div.icon {
 		display: none;
+
+		> {
+			font-size: 1em;
+		}
 	}
 
 	@include media(desktop) {
