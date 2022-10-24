@@ -1,7 +1,6 @@
 export default {
-	server: {
-		host: "0.0.0.0",
-		port: 8080,
+	publicRuntimeConfig: {
+		LOCATION_CV: process.env.LOCATION_CV,
 	},
 
 	// Global page headers: https://go.nuxtjs.dev/config-head

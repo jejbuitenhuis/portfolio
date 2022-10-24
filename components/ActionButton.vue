@@ -55,7 +55,7 @@ export default {
 
 			if (type === "function") return "function";
 
-			if (type === "string" && type.startsWith("http"))
+			if (type === "string" && this.action.startsWith("http"))
 				return "external-link";
 
 			return "internal-link";

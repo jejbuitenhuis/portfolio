@@ -10,7 +10,7 @@
 				<p>I study Information and Communications Technology (HBO-ICT) at HAN University of Applied Sciences. At the moment I mainly program in Rust, but I also like to make websites with Vue.JS.</p>
 
 				<div class="buttons">
-					<ActionButton outline action="/cv/">
+					<ActionButton outline :action="$config.LOCATION_CV">
 						View my CV
 					</ActionButton>
 
