@@ -54,7 +54,6 @@ export default {
 	}
 
 	.icon {
-		height: 1em; // fix for fontawesome icons not being the correct size when build
 		font-size: .8em;
 	}
 

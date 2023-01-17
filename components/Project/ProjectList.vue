@@ -173,10 +173,6 @@ export default {
 							color: map-get($colors, "blue");
 						}
 					}
-
-					.icon {
-						height: 1em; // fix for fontawesome icons not being the correct size when build
-					}
 				}
 			}
 

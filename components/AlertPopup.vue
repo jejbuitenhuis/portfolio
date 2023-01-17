@@ -105,7 +105,6 @@ $padding: 1em;
 		}
 
 		.icon {
-			height: 1em; // fix for fontawesome icons not being the correct size when build
 			color: map-get($colors, "red");
 			font-size: 2.5em;
 

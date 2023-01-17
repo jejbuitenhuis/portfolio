@@ -27,6 +27,8 @@ export default {
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: [
 		"~/assets/scss/variables.scss",
+		// https://stackoverflow.com/a/71864996/9946744
+		"~/assets/scss/icons-fix.scss",
 	],
 
 	styleResources: {
@@ -76,5 +78,6 @@ export default {
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
-	}
+		extractCSS: true,
+	},
 };
