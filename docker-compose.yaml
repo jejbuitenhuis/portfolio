@@ -2,8 +2,12 @@ version: "3"
 
 services:
   portfolio:
-    build: .
+    build:
+      context: .
+      args:
+        - NUXT_PORT=${NUXT_PORT}
     ports:
-      - 10002:80
+      - 10002:${NUXT_PORT}
     env_file:
       - .env
+    restart: always
