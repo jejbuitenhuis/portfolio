@@ -6,10 +6,10 @@
 	"links": {
 		"github": "https://github.com/jejbuitenhuis/portfolio/",
 	},
-	"languages": [
-		"VueJS",
-		"JavaScript",
-		"SCSS"
+	"tags": [
+		"framework:VueJS",
+		"language:JavaScript",
+		"language:SCSS"
 	]
 }
 ---

@@ -37,11 +37,10 @@
 
 				<div class="tags">
 					<SearchTag
-						v-for="lang in project.languages"
+						v-for="lang in project.tags"
 						:key="`tag-lang-${lang}`"
 						dark
-						search-key="language"
-						:search-value="lang"
+						:tag="lang"
 					/>
 				</div>
 			</div>

@@ -6,8 +6,8 @@
 	"links": {
 		"github": "https://github.com/jejbuitenhuis/void/"
 	},
-	"languages": [
-		"Rust"
+	"tags": [
+		"language:Rust"
 	]
 }
 ---

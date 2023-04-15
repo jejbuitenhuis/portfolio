@@ -6,8 +6,8 @@
 	"links": {
 		"github": "https://github.com/jejbuitenhuis/minesweeper/",
 	},
-	"languages": [
-		"C++"
+	"tags": [
+		"language:C++"
 	]
 }
 ---

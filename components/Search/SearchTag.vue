@@ -18,26 +18,29 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		searchKey: {
+		tag: {
 			type: String,
 			required: true,
-			validator: k => k.length > 0,
-		},
-		searchValue: {
-			type: String,
-			required: true,
-			validator: k => k.length > 0,
+			validator: k => k.length > 0 && k.includes(":"),
 		},
 	},
 	computed: {
 		label() {
-			return `Search for more projects related to ${this.searchValue}`;
+			return `Search for more projects, work, etc related to ${this.searchValue}`;
+		},
+
+		searchKey() {
+			return this.tag.split(":")[0].toLowerCase();
+		},
+
+		searchValue() {
+			return this.tag.split(":")[1];
 		},
 
 		searchLink() {
 			const search = encodeURIComponent(this.searchValue.toLowerCase());
 
-			return `/projects/search?${this.searchKey}=${search}`;
+			return `/search?${this.searchKey}=${search}`;
 		},
 	},
 };
@@ -45,6 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 .SearchTag {
+	display: inline-block;
 	padding: .25em 1em;
 	color: map-get($colors, "foreground");
 	border: .1em solid map-get($colors, "grey");
@@ -53,8 +57,9 @@ export default {
 	text-decoration: none;
 	transition: border-color .3s ease;
 
-	&:not(:first-of-type) {
-		margin-left: .5em;
+	// FIXME: padding under the tag when there is more than one row of tags
+	&:not(:last-of-type) {
+		margin-right: .5em;
 	}
 
 	@include media(desktop) {

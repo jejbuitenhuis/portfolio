@@ -5,8 +5,8 @@
 	"links": {
 		"github": "https://github.com/jejbuitenhuis/mocker/"
 	},
-	"languages": [
-		"Rust"
+	"tags": [
+		"language:Rust"
 	]
 }
 ---
